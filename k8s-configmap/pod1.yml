@@ -1,0 +1,36 @@
+# 1 K8's version - apiVersion
+apiVersion: v1
+
+# 2 Type of K8's Component - Pod
+kind: Pod
+
+# 3 Metadata of K8's
+metadata:
+  name: pod1
+  labels:
+    app: pod1-nginx
+
+# 4 Specification of your app
+spec:
+  containers:
+    # Here is my containers list
+    - name: nginx-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+      env:
+        - name: NAME
+          valueFrom:
+            configMapKeyRef:
+              name: configmap1
+              key: name
+        - name: CITY
+          valueFrom:
+            configMapKeyRef:
+              name: configmap1
+              key: city
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: configmap1
+              key: port

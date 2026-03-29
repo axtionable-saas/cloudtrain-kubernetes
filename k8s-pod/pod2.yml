@@ -1,0 +1,26 @@
+# 1 K8's version - apiVersion
+apiVersion: v1
+
+# 2 Type of K8's Component - Pod
+kind: Pod
+
+# 3 Metadata of K8's
+metadata:
+  name: pod2
+  labels:
+    app: pod2-nginx-mongodb
+
+# 4 Specification of your app
+spec:
+  containers:
+    # Here is my containers list
+    # This is container 1
+    - name: nginx-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+    # This is container 2
+    - name: mongodb-container
+      image: mongo:latest
+      ports:
+        - containerPort: 27017

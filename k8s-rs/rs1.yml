@@ -1,0 +1,34 @@
+# 1 K8's version - apiVersion - apps/v1
+apiVersion: apps/v1
+
+# 2 Type of K8's Component - ReplicaSet
+kind: ReplicaSet
+
+# 3 Metadata of K8's
+metadata:
+  name: rs1
+  labels:
+    app: rs1-nginx
+
+# 4 Specification of your app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: pod1-nginx
+  template:
+    # 3 Metadata of K8's
+    metadata:
+      name: pod1
+      labels:
+        app: pod1-nginx
+
+    # 4 Specification of your app
+    spec:
+      containers:
+        # Here is my containers list
+        - name: nginx-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+  

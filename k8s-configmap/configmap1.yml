@@ -1,0 +1,18 @@
+# 1 K8's version - apiVersion - v1
+apiVersion: v1
+
+# 2 Type of K8's Component - ConfigMap
+kind: ConfigMap
+
+# 3 Metadata of K8's
+metadata:
+  name: configmap1
+  labels:
+    app: app-configmap1
+
+# 4 Specification (data) of your app
+data:
+  # Key1: value1
+  name: "rohit"
+  city: "delhi"
+  port: "5000"

@@ -1,0 +1,119 @@
+# kubectl - cli layer which helps in interaction with my k8's cluster.
+# kubectl verion
+
+# 1) Get nodes
+kubectl get nodes
+
+# 2) Get pods
+kubectl get pods
+
+# 3) What is namespace - default name of namespace, prod
+kubectl get ns
+
+# 4) Create a pod - nginx pod using yml
+# 4.1) Create/start a pod
+kubectl create -f pod1.yml
+
+# 4.2) Check the status of my pod
+kubectl get pods
+kubectl get pods -o wide
+
+# 4.3) Check the detailed description of my pod
+kubectl describe pod <pod-name>
+
+# 4.4) Delete the pod
+kubectl delete -f pod1.yml
+
+# 4.5) Going inside pod containers
+kubectl exec -it pod2 --container nginx-container bash
+
+# 5) Create a rs - nginx pod using yml
+# 5.1) Create/start a rs
+kubectl create -f rs1.yml
+
+# 5.2) Check the status of my rs
+kubectl get rs
+kubectl get pods
+
+# 5.3) Check the detailed description of my pod & rs
+kubectl describe rs rs1
+kubectl describe pod <pod-name>
+
+# 5.4) Delete the rs
+kubectl delete -f rs1.yml
+
+# 5.5) Going inside pod containers
+kubectl exec -it rs1-fgxxj --container nginx-container bash
+
+# 6) Create a configmap - using yml
+# 6.1) Create/start a cm
+kubectl create -f configmap1.yml
+
+# 6.2) Check the status of my configmap - cm
+kubectl get cm
+
+# 6.3) Check the detailed description of my pod & cm
+kubectl describe cm configmap1
+
+# 6.4) Delete the cm
+kubectl delete -f configmap1.yml
+
+# 6.5) Going inside pod containers
+kubectl exec -it rs1-fgxxj --container nginx-container bash
+
+# 7) Create a secret - using yml
+# 7.1) Create/start a secret
+kubectl create -f secret1.yml
+
+# 7.2) Check the status of my configmap - secret
+kubectl get secret
+
+# 7.3) Check the detailed description of my pod & secret
+kubectl describe secret secret1
+
+# 7.4) Delete the cmf
+kubectl delete -f secret1.yml
+
+# 7.5) Going inside pod containers
+kubectl exec -it rs1-fgxxj --container nginx-container bash
+
+# 8) Create a volume - using yml
+# 8.1) Create/start a volume
+kubectl create -f volume1.yml
+
+# 8.2) Check the status of my volume - pv
+kubectl get pv
+
+# 8.3) Check the detailed description of my pod & pv
+kubectl describe pv volume1
+
+# 8.4) Delete the cmf
+kubectl delete -f volume1.yml
+
+# 8.5) Going inside pod containers
+kubectl exec -it rs1-fgxxj --container nginx-container bash
+
+------------------------------------------------------------------------
+
+# 9 Deployment - Kind
+# 9.1) Create/start a deployment
+kubectl create -f deployment1.yml
+kubectl apply -f deployment1.yml
+
+# 9.2) Check the status of my deployment - deployment
+kubectl get deployment
+
+# 9.3) Check the detailed description of my pod & deployment
+kubectl describe deployment deployment1
+
+# 9.4) Scale Deployment
+kubectl scale deployment deployment1 --replicas=10
+
+# 9.5) Rollout history
+kubectl rollout history deployment deployment1
+
+# 9.6) Rollback
+kubectl rollout undo deployment deployment1
+
+# 9.7) Delete the cmf
+kubectl delete -f deployment1.yml

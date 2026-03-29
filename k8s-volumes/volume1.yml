@@ -1,0 +1,20 @@
+# 1 K8's version - apiVersion - v1
+apiVersion: v1
+
+# 2 Type of K8's Component - PersistentVolume
+kind: PersistentVolume
+
+# 3 Metadata of K8's
+metadata:
+  name: volume1
+  labels:
+    app: app-volume1
+
+# 4 Specification of your app
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /data
