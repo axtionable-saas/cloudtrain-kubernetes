@@ -1,0 +1,22 @@
+Pod - smallest deployable unit (Dynamic IP, can't access it stablity)
+
+Service - Stable IP, DNS Name, LB
+
+Type - 1: ClusterIP
+- internal communication
+- Not accesible from outside browser
+- ms 1 <--ClusterIP--> ms 2
+
+kubectl run debug --image=nicolaka/netshoot -it --rm -- bash
+
+Type - 2: NodePort
+- Exposes random selected port (30000 - 32767) on node port
+- browser -> address:random selected -> response
+
+kubectl port-forward svc/nginx-nodeport 8080:80
+
+Type - 3: LoadBalancer
+- creates external LB (cloud) -> Prod
+
+Type - 4: ExternalName
+- service ---> maps to external domain name
